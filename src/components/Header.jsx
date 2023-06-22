@@ -16,7 +16,7 @@ import Loader from "../shared/loader";
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
-    const { loading, mobileMenu, setMobileMenu } = useContext(Context);
+    const { loading, mobileMenu, setmobileMenu } = useContext(Context);
 
     const navigate = useNavigate();
 
@@ -30,14 +30,16 @@ const Header = () => {
     };
 
     const mobileMenuToggle = () => {
-        setMobileMenu(!mobileMenu);
+        setmobileMenu(!mobileMenu);
     };
 
     const { pathname } = useLocation();
     const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
 
+    
+
     return (
-        <div className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-white dark:bg-black">
+        <div className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-black dark:bg-black">
             {loading && <Loader />}
 
             <div className="flex h-5 items-center">
@@ -53,9 +55,14 @@ const Header = () => {
                         )}
                     </div>
                 )}
+
+
+
+
+
                 <Link to="/" className="flex h-5 items-center">
                     <img
-                        className="h-full hidden dark:md:block"
+                        className="h-full hidden md:block"
                         src={ytLogo}
                         alt="Youtube"
                     />
@@ -97,7 +104,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
-                    <img src="https://xsgames.co/randomusers/assets/avatars/female/67.jpg" />
+                    <img src="https://cdn.pixabay.com/photo/2017/01/23/19/40/woman-2003647_1280.jpg" alt="acImage" />
                 </div>
             </div>
         </div>
